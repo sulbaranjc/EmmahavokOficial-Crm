@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+import Message from "./message";
+
 export default () => {
   const [questions, setQuestions] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -22,7 +24,15 @@ export default () => {
       {!loading && (
         <>
           {questions.map((question, i) => (
-            <div key={i}>{question.first_name}</div>
+            <Message
+              key={question._id}
+              first_name={question.first_name}
+              updatedAt={question.updatedAt}
+              last_name={question.last_name}
+              phone={question.phone}
+              email={question.email}
+              question={question.question}
+            />
           ))}
         </>
       )}
