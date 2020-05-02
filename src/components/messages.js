@@ -11,10 +11,10 @@ export default () => {
       url: "https://emmahavokoficial-client-api.herokuapp.com/api/client",
     }).then((res) => {
       setQuestions(res.data);
-      debugger;
       setLoading(false);
     });
   }, [setQuestions]);
+
   return (
     <div>
       <p>Listado de Mensages</p>
