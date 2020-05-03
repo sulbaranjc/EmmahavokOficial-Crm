@@ -8,14 +8,16 @@ export default () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios({
-      method: "GET",
-      url: "https://emmahavokoficial-client-api.herokuapp.com/api/client",
-    }).then((res) => {
-      setQuestions(res.data);
-      setLoading(false);
-    });
-  }, [setQuestions]);
+    if (loading) {
+      axios({
+        method: "GET",
+        url: "https://emmahavokoficial-client-api.herokuapp.com/api/client",
+      }).then((res) => {
+        setQuestions(res.data);
+        setLoading(false);
+      });
+    }
+  }, [loading]);
 
   return (
     <div>
@@ -25,13 +27,17 @@ export default () => {
         <>
           {questions.map((question, i) => (
             <Message
-              key={question._id}
+              key={i}
+              keyMessage={question._id}
               first_name={question.first_name}
-              updatedAt={question.updatedAt}
               last_name={question.last_name}
               phone={question.phone}
               email={question.email}
               question={question.question}
+              updatedAt={question.updatedAt}
+              createdAt={question.createdAt}
+              check_it={question.check_it}
+              setLoading={setLoading}
             />
           ))}
         </>
