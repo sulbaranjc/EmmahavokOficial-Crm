@@ -1,0 +1,11 @@
+.card-message {
+  opacity: 0.6;
+}
+.content {
+  position: relative;
+}
+.btnCheckIt {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
