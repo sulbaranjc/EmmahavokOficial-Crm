@@ -3,7 +3,7 @@ import { Card, Button } from "react-bootstrap";
 import axios from "axios";
 
 import "../styles/message.css";
-export default (props) => {
+const Message = (props) => {
   function delMenssage() {
     axios({
       method: "PUT",
@@ -41,3 +41,5 @@ export default (props) => {
     </div>
   );
 };
+
+export default Message;

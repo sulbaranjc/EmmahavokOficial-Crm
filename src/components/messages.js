@@ -3,7 +3,7 @@ import axios from "axios";
 
 import Message from "./message";
 
-export default () => {
+const Messages = () => {
   const [questions, setQuestions] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -45,3 +45,5 @@ export default () => {
     </div>
   );
 };
+
+export default Messages;
